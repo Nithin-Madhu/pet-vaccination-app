@@ -1,0 +1,26 @@
+CREATE TABLE owner (
+    id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(100) NOT NULL,
+    telephone VARCHAR(20) NOT NULL
+);
+
+CREATE TABLE pet (
+    id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(50) NOT NULL,
+    age INT NOT NULL,
+    owner_id BIGINT,
+    FOREIGN KEY (owner_id) REFERENCES owner(id)
+);
+
+CREATE TABLE vaccine (
+    id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    pet_id BIGINT,
+    vaccination_date TIMESTAMP NOT NULL,
+    FOREIGN KEY (pet_id) REFERENCES pet(id)
+);
+
+CREATE TABLE users (
+    id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    password VARCHAR(100) NOT NULL
+);

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jnlp spec="1.0+" codebase="http://localhost:8080/pet-management">
+    <information>
+        <title>Pet Management Application</title>
+    </information>
+    <resources>
+        <j2se version="1.8+"/>
+        <jar href="pet-management.jar"/>
+    </resources>
+    <application-desc main-class="com.petmanagement.ui.MainFrame"/>
+</jnlp>
