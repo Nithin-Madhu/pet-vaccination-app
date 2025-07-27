@@ -3,6 +3,7 @@ package service;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import javax.annotation.Resource;
 import javax.ejb.Schedule;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
@@ -19,8 +20,7 @@ public class VaccinationScheduler {
     @Inject
     private JMSContext context;
     
-    @Inject
-    @javax.jms.JMSConnectionFactory("java:/ConnectionFactory")
+    @Resource(lookup = "java:/jms/queue/VaccinationQueue")
     private Queue queue;
     
     @Schedule(hour = "*", minute = "*/1", persistent = false)
